@@ -1,0 +1,26 @@
+
+services:
+  - type: web
+    name: amowaciston-jane
+    env: node
+    plan: free
+    buildCommand: npm install && npm run migrate
+    startCommand: node server.js
+    autoDeploy: true
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: CLIENT_URL
+        value: https://your-netlify-site.net
+      - key: ENABLE_WEB_RAG
+        value: "false"
+      - key: RAG_WHITELIST
+        value: https://www.nimh.nih.gov,https://cmha.ca,https://www.hopeforwellness.ca,https://www.camh.ca
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: PRICE_MONTHLY
+        value: price_xxx
+      - key: PRICE_YEARLY
+        value: price_xxx

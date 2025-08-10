@@ -1,0 +1,1 @@
+import Database from 'better-sqlite3'; const db=new Database(process.env.DB_PATH||'./jane.sqlite'); db.pragma('journal_mode=WAL'); console.log('DB ready');

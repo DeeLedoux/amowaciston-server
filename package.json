@@ -1,0 +1,19 @@
+{
+  "name": "amowaciston-jane-proxy",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.56.0",
+    "better-sqlite3": "^9.6.0",
+    "stripe": "^16.8.0"
+  }
+}
