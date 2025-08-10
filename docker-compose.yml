@@ -1,0 +1,20 @@
+
+version: "3.9"
+services:
+  amowaciston-server:
+    build: .
+    container_name: amowaciston-server
+    ports:
+      - "8787:8787"
+    environment:
+      # Fill these or mount a .env file
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
+      - PRICE_MONTHLY=${PRICE_MONTHLY}
+      - PRICE_YEARLY=${PRICE_YEARLY}
+      - CLIENT_URL=${CLIENT_URL:-http://localhost:5173}
+      - ENABLE_WEB_RAG=${ENABLE_WEB_RAG:-false}
+      - RAG_WHITELIST=${RAG_WHITELIST:-https://www.nimh.nih.gov,https://cmha.ca}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
